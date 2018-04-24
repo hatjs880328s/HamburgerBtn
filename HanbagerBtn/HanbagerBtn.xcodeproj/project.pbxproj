@@ -93,7 +93,6 @@
 				56C1E80C208F0DD300FBD33C /* HanBtn */,
 				56747D57208EDAE000E809CD /* AppDelegate.swift */,
 				56747D59208EDAE000E809CD /* ViewController.swift */,
-				56C1E80A208F00E200FBD33C /* HanBtnCircleLayer.swift */,
 				56747D5B208EDAE000E809CD /* Main.storyboard */,
 				56747D5E208EDAE100E809CD /* Assets.xcassets */,
 				56747D60208EDAE100E809CD /* LaunchScreen.storyboard */,
@@ -118,6 +117,7 @@
 				56747D79208EDB7D00E809CD /* HanBtnLayerOne.swift */,
 				56747D7B208EDCB500E809CD /* HanBtnLayerTwo.swift */,
 				56747D7D208EDCE800E809CD /* HanBtnLayerThree.swift */,
+				56C1E80A208F00E200FBD33C /* HanBtnCircleLayer.swift */,
 			);
 			path = HanBtn;
 			sourceTree = "<group>";

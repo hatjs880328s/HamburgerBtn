@@ -40,8 +40,8 @@ class HanBtnLayerThree: CAShapeLayer {
     
     var endPath: UIBezierPath {
         let pathNow = UIBezierPath()
-        pathNow.move(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding * 2))
-        pathNow.addLine(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding * 2))
+        pathNow.move(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding))
         pathNow.close()
         return pathNow
     }
