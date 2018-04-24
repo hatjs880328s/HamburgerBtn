@@ -14,7 +14,7 @@ let hanBtnHeight: CGFloat = 76
 
 let hanBtnpadding: CGFloat = 20
 
-let hanBtnLinecolor: CGColor = UIColor.red.cgColor
+let hanBtnLinecolor: CGColor = UIColor.black.cgColor
 
 let hanBtncircleDuration : Double = 0.3
 
@@ -24,6 +24,7 @@ let hanBtnlastLineDuration: Double = 0.2
 
 enum HanburgerBtnType{
     case normal
+    case normalNoCircle
     case leftArrow
     case rightArrow
     case downArrow
@@ -48,6 +49,9 @@ class HanBtnVw: UIButton {
         self.hanburgerType = hanburgerType
         createLayers(hanburgerType)
         self.addTarget(self, action: #selector(animationStart), for: UIControlEvents.touchUpInside)
+        self.layer.cornerRadius = 6
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 0.5
     }
     
     func createLayers(_ hanburgerType: HanburgerBtnType = .normal) {
@@ -57,6 +61,10 @@ class HanBtnVw: UIButton {
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
             self.layer.addSublayer(circle)
+        case .normalNoCircle:
+            self.layer.addSublayer(one)
+            self.layer.addSublayer(two)
+            self.layer.addSublayer(three)
         case .leftArrow:
             self.layer.addSublayer(one)
             self.layer.addSublayer(two)
@@ -110,6 +118,18 @@ class HanBtnVw: UIButton {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + hanBtncircleDuration) {
                     self.three.changeNormal()
                 }
+                self.change = true
+            }
+        case .normalNoCircle:
+            if change {
+                self.one.animationX()
+                self.two.animationX()
+                self.three.changeShort()
+                self.change = false
+            }else{
+                self.one.changeNormal()
+                self.two.changeNormal()
+                self.three.changeNormal()
                 self.change = true
             }
         case .leftArrow:

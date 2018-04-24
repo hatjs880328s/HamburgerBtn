@@ -35,6 +35,9 @@ class ViewController: UIViewController {
         let vwaddc = HanBtnVw(frame: CGRect(x: 180, y: 350, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .addcharacter)
         self.view.addSubview(vwaddc)
         
+        let vwnormalNocircle = HanBtnVw(frame: CGRect(x: 180, y: 450, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .normalNoCircle)
+        self.view.addSubview(vwnormalNocircle)
+        
     }
 
     override func didReceiveMemoryWarning() {
