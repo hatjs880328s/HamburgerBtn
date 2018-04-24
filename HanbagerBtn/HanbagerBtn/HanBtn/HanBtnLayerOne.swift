@@ -38,6 +38,7 @@ class HanBtnLayerOne: CAShapeLayer {
         return pathNow
     }
     
+    /// normal
     var endPath: UIBezierPath {
         let pathNow = UIBezierPath()
         pathNow.move(to: CGPoint(x: padding, y: padding))
@@ -60,6 +61,15 @@ class HanBtnLayerOne: CAShapeLayer {
         let pathNow = UIBezierPath()
         pathNow.move(to: CGPoint(x: hanBtnHeight / 2, y: padding))
         pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding, y: hanBtnHeight / 2))
+        pathNow.close()
+        return pathNow
+    }
+    
+    /// down arrow
+    var arrowDownPath: UIBezierPath {
+        let pathNow = UIBezierPath()
+        pathNow.move(to: CGPoint(x: padding, y: hanBtnHeight / 2))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding))
         pathNow.close()
         return pathNow
     }
@@ -131,6 +141,31 @@ extension HanBtnLayerOne {
     func rightArrowChangeNormal() {
         let arc2 = CABasicAnimation(keyPath: "path")
         arc2.fromValue = arrowRightPath.cgPath
+        arc2.toValue = startPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+}
+
+/// down arrow
+extension HanBtnLayerOne {
+    func changeDownArrow() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = startPath.cgPath
+        arc2.toValue = arrowDownPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+    
+    func downArrowChangeNormal() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = arrowDownPath.cgPath
         arc2.toValue = startPath.cgPath
         arc2.beginTime = 0
         arc2.fillMode = kCAFillModeForwards

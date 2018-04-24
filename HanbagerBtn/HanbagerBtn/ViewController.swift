@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         let vwright = HanBtnVw(frame: CGRect(x: 190, y: 50, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .rightArrow)
         self.view.addSubview(vwright)
         
+        let vwdown = HanBtnVw(frame: CGRect(x: 260, y: 50, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .downArrow)
+        self.view.addSubview(vwdown)
+        
     }
 
     override func didReceiveMemoryWarning() {

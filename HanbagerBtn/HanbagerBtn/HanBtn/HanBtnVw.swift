@@ -26,6 +26,7 @@ enum HanburgerBtnType{
     case normal
     case leftArrow
     case rightArrow
+    case downArrow
 }
 
 class HanBtnVw: UIButton {
@@ -58,6 +59,10 @@ class HanBtnVw: UIButton {
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
         case .rightArrow:
+            self.layer.addSublayer(one)
+            self.layer.addSublayer(two)
+            self.layer.addSublayer(three)
+        case .downArrow:
             self.layer.addSublayer(one)
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
@@ -111,6 +116,18 @@ class HanBtnVw: UIButton {
                 self.change = true
                 self.one.rightArrowChangeNormal()
                 self.three.rightArrowChangeNormal()
+            }
+        case .downArrow:
+            if change {
+                self.change = false
+                self.one.changeDownArrow()
+                self.two.changeDownArrow()
+                self.three.changeDownArrow()
+            }else{
+                self.change = true
+                self.one.downArrowChangeNormal()
+                self.two.downArrowChangeNormal()
+                self.three.downArrowChangeNormal()
             }
         }
     }
