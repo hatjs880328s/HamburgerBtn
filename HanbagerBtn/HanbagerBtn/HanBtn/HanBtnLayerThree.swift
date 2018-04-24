@@ -91,6 +91,15 @@ class HanBtnLayerThree: CAShapeLayer {
         pathNow.close()
         return pathNow
     }
+    
+    /// add character
+    var arrowAddcPath: UIBezierPath {
+        let pathNow = UIBezierPath()
+        pathNow.move(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight / 2, y: hanBtnHeight - padding))
+        pathNow.close()
+        return pathNow
+    }
 }
 
 /// normal
@@ -234,6 +243,31 @@ extension HanBtnLayerThree {
     func onelineArrowChangeNormal() {
         let arc2 = CABasicAnimation(keyPath: "path")
         arc2.fromValue = arrowOnelinePath.cgPath
+        arc2.toValue = startPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+}
+
+/// add character
+extension HanBtnLayerThree {
+    func changeAddcArrow() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = startPath.cgPath
+        arc2.toValue = arrowAddcPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+    
+    func addcArrowChangeNormal() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = arrowAddcPath.cgPath
         arc2.toValue = startPath.cgPath
         arc2.beginTime = 0
         arc2.fillMode = kCAFillModeForwards
