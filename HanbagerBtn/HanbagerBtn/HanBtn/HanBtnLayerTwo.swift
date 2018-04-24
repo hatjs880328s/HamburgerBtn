@@ -32,7 +32,7 @@ class HanBtnLayerTwo: CAShapeLayer {
     
     var startPath: UIBezierPath {
         let pathNow = UIBezierPath()
-        pathNow.move(to: CGPoint(x: padding, y: hanBtnHeight / 2.0))
+        pathNow.move(to: CGPoint(x: padding, y: hanBtnHeight / 2))
         pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding, y: hanBtnHeight / 2))
         pathNow.close()
         return pathNow
@@ -46,6 +46,10 @@ class HanBtnLayerTwo: CAShapeLayer {
         return pathNow
     }
     
+}
+
+/// normal
+extension HanBtnLayerTwo {
     func animationX() {
         let arc2 = CABasicAnimation(keyPath: "path")
         arc2.fromValue = startPath.cgPath
