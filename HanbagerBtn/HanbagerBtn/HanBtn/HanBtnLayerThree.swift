@@ -20,7 +20,7 @@ class HanBtnLayerThree: CAShapeLayer {
         super.init()
         self.durationX = duration
         self.strokeColor = hanBtnLinecolor
-        self.lineWidth = 1
+        self.lineWidth = 2
         self.fillColor = UIColor.clear.cgColor
         self.path = startPath.cgPath
     }
