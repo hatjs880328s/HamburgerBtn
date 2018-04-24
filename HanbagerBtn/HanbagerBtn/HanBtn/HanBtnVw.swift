@@ -33,6 +33,7 @@ enum HanburgerBtnType{
     case ver3
     case oneline
     case addcharacter
+    case stairway
 }
 
 class HanBtnVw: UIButton {
@@ -88,6 +89,10 @@ class HanBtnVw: UIButton {
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
         case .addcharacter:
+            self.layer.addSublayer(one)
+            self.layer.addSublayer(two)
+            self.layer.addSublayer(three)
+        case .stairway:
             self.layer.addSublayer(one)
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
@@ -197,6 +202,16 @@ class HanBtnVw: UIButton {
                 self.change = true
                 self.one.addcArrowChangeNormal()
                 self.three.addcArrowChangeNormal()
+            }
+        case .stairway:
+            if change {
+                self.change = false
+                self.one.changeStairway()
+                self.two.changeStairway()
+            }else{
+                self.change = true
+                self.one.stairwayChangeNormal()
+                self.two.stairwayChangeNormal()
             }
         }
     }

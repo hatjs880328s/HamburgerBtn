@@ -65,6 +65,15 @@ class HanBtnLayerTwo: CAShapeLayer {
         return pathNow
     }
     
+    /// stairway
+    var arrowStairway: UIBezierPath {
+        let pathNow = UIBezierPath()
+        pathNow.move(to: CGPoint(x: padding, y: hanBtnHeight / 2))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding * 1.4, y: hanBtnHeight / 2))
+        pathNow.close()
+        return pathNow
+    }
+    
 }
 
 /// normal
@@ -133,6 +142,31 @@ extension HanBtnLayerTwo {
     func ver3ArrowChangeNormal() {
         let arc2 = CABasicAnimation(keyPath: "path")
         arc2.fromValue = arrowVer3Path.cgPath
+        arc2.toValue = startPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+}
+
+/// stairway
+extension HanBtnLayerTwo {
+    func changeStairway() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = startPath.cgPath
+        arc2.toValue = arrowStairway.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+    
+    func stairwayChangeNormal() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = arrowStairway.cgPath
         arc2.toValue = startPath.cgPath
         arc2.beginTime = 0
         arc2.fillMode = kCAFillModeForwards

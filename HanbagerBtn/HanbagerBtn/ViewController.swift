@@ -38,6 +38,10 @@ class ViewController: UIViewController {
         let vwnormalNocircle = HanBtnVw(frame: CGRect(x: 180, y: 450, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .normalNoCircle)
         self.view.addSubview(vwnormalNocircle)
         
+        
+        let vwstairWay = HanBtnVw(frame: CGRect(x: 310, y: 150, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .stairway)
+        self.view.addSubview(vwstairWay)
+        
     }
 
     override func didReceiveMemoryWarning() {
