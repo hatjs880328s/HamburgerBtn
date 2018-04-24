@@ -69,7 +69,7 @@ class HanBtnLayerTwo: CAShapeLayer {
     var arrowStairway: UIBezierPath {
         let pathNow = UIBezierPath()
         pathNow.move(to: CGPoint(x: padding, y: hanBtnHeight / 2))
-        pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding * 1.4, y: hanBtnHeight / 2))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding * 1.5, y: hanBtnHeight / 2))
         pathNow.close()
         return pathNow
     }
