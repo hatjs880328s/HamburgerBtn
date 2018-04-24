@@ -28,9 +28,10 @@ class HanBtnCircleLayer: CAShapeLayer {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// circle 's radius...
     var radius: CGFloat {
         let lineFloat = (hanBtnHeight - hanBtnpadding * 2)
-        return  sqrt(lineFloat * lineFloat * 2) / 2 + 2
+        return  sqrt(lineFloat * lineFloat * 2) / 2 + 4
     }
     
     var circlePath: UIBezierPath {
