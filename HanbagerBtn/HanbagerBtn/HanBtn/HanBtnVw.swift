@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-let hanBtnHeight: CGFloat = 38
+let hanBtnHeight: CGFloat = 76
 
-let hanBtnpadding: CGFloat = 10
+let hanBtnpadding: CGFloat = 20
 
 let hanBtnLinecolor: CGColor = UIColor.red.cgColor
 
@@ -27,6 +27,8 @@ enum HanburgerBtnType{
     case leftArrow
     case rightArrow
     case downArrow
+    case ver3
+    case oneline
 }
 
 class HanBtnVw: UIButton {
@@ -63,6 +65,14 @@ class HanBtnVw: UIButton {
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
         case .downArrow:
+            self.layer.addSublayer(one)
+            self.layer.addSublayer(two)
+            self.layer.addSublayer(three)
+        case .ver3:
+            self.layer.addSublayer(one)
+            self.layer.addSublayer(two)
+            self.layer.addSublayer(three)
+        case .oneline:
             self.layer.addSublayer(one)
             self.layer.addSublayer(two)
             self.layer.addSublayer(three)
@@ -128,6 +138,28 @@ class HanBtnVw: UIButton {
                 self.one.downArrowChangeNormal()
                 self.two.downArrowChangeNormal()
                 self.three.downArrowChangeNormal()
+            }
+        case .ver3:
+            if change {
+                self.change = false
+                self.one.changeVer3Arrow()
+                self.two.changeVer3Arrow()
+                self.three.changeVer3Arrow()
+            }else{
+                self.change = true
+                self.one.ver3ArrowChangeNormal()
+                self.two.ver3ArrowChangeNormal()
+                self.three.ver3ArrowChangeNormal()
+            }
+        case .oneline:
+            if change {
+                self.change = false
+                self.one.changeOnelineArrow()
+                self.three.changeOnelineArrow()
+            }else{
+                self.change = true
+                self.one.onelineArrowChangeNormal()
+                self.three.onelineArrowChangeNormal()
             }
         }
     }

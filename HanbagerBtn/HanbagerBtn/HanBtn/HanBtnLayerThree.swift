@@ -74,8 +74,23 @@ class HanBtnLayerThree: CAShapeLayer {
         return pathNow
     }
     
+    /// ver 3
+    var arrowVer3Path: UIBezierPath {
+        let pathNow = UIBezierPath()
+        pathNow.move(to: CGPoint(x: hanBtnHeight - padding, y: padding * 1.5))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding, y: hanBtnHeight - padding * 1.5))
+        pathNow.close()
+        return pathNow
+    }
     
-    
+    /// one line
+    var arrowOnelinePath: UIBezierPath {
+        let pathNow = UIBezierPath()
+        pathNow.move(to: CGPoint(x: hanBtnHeight - padding, y: hanBtnHeight - padding))
+        pathNow.addLine(to: CGPoint(x: hanBtnHeight - padding, y: hanBtnHeight - padding))
+        pathNow.close()
+        return pathNow
+    }
 }
 
 /// normal
@@ -169,6 +184,56 @@ extension HanBtnLayerThree {
     func downArrowChangeNormal() {
         let arc2 = CABasicAnimation(keyPath: "path")
         arc2.fromValue = arrowDownPath.cgPath
+        arc2.toValue = startPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+}
+
+/// ver 3
+extension HanBtnLayerThree {
+    func changeVer3Arrow() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = startPath.cgPath
+        arc2.toValue = arrowVer3Path.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+    
+    func ver3ArrowChangeNormal() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = arrowVer3Path.cgPath
+        arc2.toValue = startPath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+}
+
+/// one line
+extension HanBtnLayerThree {
+    func changeOnelineArrow() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = startPath.cgPath
+        arc2.toValue = arrowOnelinePath.cgPath
+        arc2.beginTime = 0
+        arc2.fillMode = kCAFillModeForwards
+        arc2.isRemovedOnCompletion = false
+        arc2.duration = durationX
+        self.add(arc2, forKey: nil)
+    }
+    
+    func onelineArrowChangeNormal() {
+        let arc2 = CABasicAnimation(keyPath: "path")
+        arc2.fromValue = arrowOnelinePath.cgPath
         arc2.toValue = startPath.cgPath
         arc2.beginTime = 0
         arc2.fillMode = kCAFillModeForwards
