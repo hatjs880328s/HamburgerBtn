@@ -16,6 +16,8 @@ let hanBtnpadding: CGFloat = 20
 
 let hanBtnLinecolor: CGColor = UIColor.black.cgColor
 
+let hanBtnLineWidth: CGFloat = 3
+
 let hanBtncircleDuration : Double = 0.3
 
 let hanBtntop2LineDuration: Double = 0.3
