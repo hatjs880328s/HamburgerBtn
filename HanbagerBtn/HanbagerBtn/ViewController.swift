@@ -12,9 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.gray
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        /// - create views
         let vw = HanBtnVw(frame: CGRect(x: 10, y: 150, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .normal)
         self.view.addSubview(vw)
+        vw.forwardAnimationEndAction = { () in
+            print("--forword animation over.--")
+        }
         
         let vwleft = HanBtnVw(frame: CGRect(x: 10, y: 250, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .leftArrow)
         self.view.addSubview(vwleft)
@@ -41,11 +50,6 @@ class ViewController: UIViewController {
         
         let vwstairWay = HanBtnVw(frame: CGRect(x: 270, y: 150, width: hanBtnHeight, height: hanBtnHeight),hanburgerType: .stairway)
         self.view.addSubview(vwstairWay)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
 

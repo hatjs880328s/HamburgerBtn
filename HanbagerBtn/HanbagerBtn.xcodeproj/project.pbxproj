@@ -87,9 +87,6 @@
 		56747D56208EDAE000E809CD /* HanbagerBtn */ = {
 			isa = PBXGroup;
 			children = (
-				56C1E80E208F10AC00FBD33C /* HanBtnDown */,
-				56C1E80F208F10AC00FBD33C /* HanBtnLeft */,
-				56C1E80D208F10AC00FBD33C /* HanBtnRight */,
 				56C1E80C208F0DD300FBD33C /* HanBtn */,
 				56747D57208EDAE000E809CD /* AppDelegate.swift */,
 				56747D59208EDAE000E809CD /* ViewController.swift */,
@@ -120,27 +117,6 @@
 				56C1E80A208F00E200FBD33C /* HanBtnCircleLayer.swift */,
 			);
 			path = HanBtn;
-			sourceTree = "<group>";
-		};
-		56C1E80D208F10AC00FBD33C /* HanBtnRight */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HanBtnRight;
-			sourceTree = "<group>";
-		};
-		56C1E80E208F10AC00FBD33C /* HanBtnDown */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HanBtnDown;
-			sourceTree = "<group>";
-		};
-		56C1E80F208F10AC00FBD33C /* HanBtnLeft */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HanBtnLeft;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

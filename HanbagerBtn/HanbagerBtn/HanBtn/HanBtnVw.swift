@@ -43,6 +43,10 @@ class HanBtnVw: UIButton {
     var three = HanBtnLayerThree(duration: hanBtnlastLineDuration)
     var circle = HanBtnCircleLayer(duration: hanBtncircleDuration)
     
+    var forwardAnimationEndAction:(()->Void)!
+    
+    var backwordAnimationEndAction:(()->Void)!
+    
     var change = true
     
     var hanburgerType: HanburgerBtnType = .normal
@@ -116,6 +120,7 @@ class HanBtnVw: UIButton {
                 self.three.changeShort()
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + hanBtnlastLineDuration) {
                     self.circle.changeCircle()
+                    self.endAction(time: hanBtncircleDuration, isForward: true)
                 }
                 self.change = false
             }else{
@@ -124,6 +129,7 @@ class HanBtnVw: UIButton {
                 self.circle.changenormal()
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + hanBtncircleDuration) {
                     self.three.changeNormal()
+                    self.endAction(time: hanBtntop2LineDuration, isForward: false)
                 }
                 self.change = true
             }
@@ -133,31 +139,37 @@ class HanBtnVw: UIButton {
                 self.two.animationX()
                 self.three.changeShort()
                 self.change = false
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.one.changeNormal()
                 self.two.changeNormal()
                 self.three.changeNormal()
                 self.change = true
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .leftArrow:
             if change {
                 self.change = false
                 self.one.changeLeftArrow()
                 self.three.changeLeftArrow()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.leftArrowChangeNormal()
                 self.three.leftArrowChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .rightArrow:
             if change {
                 self.change = false
                 self.one.changeRightArrow()
                 self.three.changeRightArrow()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.rightArrowChangeNormal()
                 self.three.rightArrowChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .downArrow:
             if change {
@@ -165,11 +177,13 @@ class HanBtnVw: UIButton {
                 self.one.changeDownArrow()
                 self.two.changeDownArrow()
                 self.three.changeDownArrow()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.downArrowChangeNormal()
                 self.two.downArrowChangeNormal()
                 self.three.downArrowChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .ver3:
             if change {
@@ -177,41 +191,61 @@ class HanBtnVw: UIButton {
                 self.one.changeVer3Arrow()
                 self.two.changeVer3Arrow()
                 self.three.changeVer3Arrow()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.ver3ArrowChangeNormal()
                 self.two.ver3ArrowChangeNormal()
                 self.three.ver3ArrowChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .oneline:
             if change {
                 self.change = false
                 self.one.changeOnelineArrow()
                 self.three.changeOnelineArrow()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.onelineArrowChangeNormal()
                 self.three.onelineArrowChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .addcharacter:
             if change {
                 self.change = false
                 self.one.changeAddcArrow()
                 self.three.changeAddcArrow()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.addcArrowChangeNormal()
                 self.three.addcArrowChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
             }
         case .stairway:
             if change {
                 self.change = false
                 self.one.changeStairway()
                 self.two.changeStairway()
+                self.endAction(time: hanBtntop2LineDuration, isForward: true)
             }else{
                 self.change = true
                 self.one.stairwayChangeNormal()
                 self.two.stairwayChangeNormal()
+                self.endAction(time: hanBtntop2LineDuration, isForward: false)
+            }
+        }
+    }
+    
+    func endAction(time: Double,isForward:Bool) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            if isForward {
+                if self.forwardAnimationEndAction == nil { return }
+                self.forwardAnimationEndAction()
+            }else{
+                if self.backwordAnimationEndAction == nil { return }
+                self.backwordAnimationEndAction()
             }
         }
     }
